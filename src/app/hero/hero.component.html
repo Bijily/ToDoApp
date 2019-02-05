@@ -1,0 +1,36 @@
+
+<h1>Bootstrap Table With Hover Rows State</h1>  
+<!--Bootstrap Table using .table-hover class-->  
+<table class="table table-hover">  
+    <thead>  
+        <tr>  
+            <th>Sr.No.</th>  
+            <th>Emolpyee Name</th>  
+            <th>Email</th>  
+            <th>City</th>  
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let hero of heroes" (click)="onSelect(hero)"  
+        [class.selected]="hero === selectedHero">
+          <th scope="row">{{hero.id}}</th>
+            <td>{{hero.name}}</td>
+            <td>xyz@mail.com </td>  
+            <td>Banglore</td>
+        </tr>  
+    </tbody>  
+</table>  
+
+<div *ngIf="selectedHero"> 
+<h2>{{selectedHero.name}} Details</h2>
+<div><span>id: </span>{{selectedHero.id}}</div>
+
+<div>
+  <label>name:
+    <input [(ngModel)]="selectedHero.name" placeholder="name">
+  </label>
+</div>
+</div>
+
+
+
